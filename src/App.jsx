@@ -1,3 +1,6 @@
+import React from "react";
+import ColorfulMessage from "./components/colorfulMessage";
+
 const App = () => {
   const onClickButton = () => alert();
   const contentStyle = {
@@ -12,6 +15,9 @@ const App = () => {
       {/*JSを示す{}があり、その中でオブジェクトを指定*/}
       <button onClick={onClickButton}>ボタン</button>
       {/*onclickイベントもキャメルケースで命名されている*/}
+      <ColorfulMessage color="pink" message="私は">
+        元気です
+      </ColorfulMessage>
     </>
   );
 };
