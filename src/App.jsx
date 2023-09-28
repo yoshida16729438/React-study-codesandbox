@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ColorfulMessage from "./components/colorfulMessage";
 
 const App = () => {
@@ -10,6 +10,15 @@ const App = () => {
   const [faceShowFlag, setFaceShowFlag] = useState(false);
 
   const onClickSwitchShowFlag = () => setFaceShowFlag(!faceShowFlag);
+
+  //useEffect：関心の分離　画面ロード時と第二引数の配列に設定した値が変化したときのみ実行されるように設定できる
+  useEffect(() => console.log("useEffect-Load!"), []);
+  useEffect(() => {
+    console.log("useeffect-2");
+    //faceShowFlag気にせずsetしていいように思えるが、そうすると変更がなくても再描画が走ってしまうらしく、ちゃんと防止する必要があるとのこと。
+    if (num % 3 === 0) faceShowFlag || setFaceShowFlag(true);
+    else faceShowFlag && setFaceShowFlag(false);
+  }, [num]);
 
   const contentStyle = {
     color: "blue",

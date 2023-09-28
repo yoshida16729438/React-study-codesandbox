@@ -12,3 +12,12 @@ const ColorfulMessage = (props) => {
 };
 
 export default ColorfulMessage;
+
+/*
+【export defaultとexport const～について】
+export defaultとした場合：import側ではimport [任意の名称] from [インポート元ファイル]と記載する。
+このとき、任意の名称を付けられる代わりにdefault exportできるのは1ファイルに1つだけとなる。（たぶんdefault設定されているやつがそれにあたると認識される）
+
+export const App=()=>とした場合：import側ではimport {App} from [インポート元ファイル]と記載する。（分割代入）
+こちらではexportで指定した名称と同じ名称を書かなければならない代わりに、複数をexportすることができる。
+*/
